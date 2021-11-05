@@ -7,9 +7,12 @@ Its me Salvador,1 Ligayao
 added pseudo error handling
 color coding
 
+05/11/21 18:23 
+
+removed colors for compatibility
+removed unused import
 */
 #include <stdio.h>
-#include <ctype.h>
 int main(){
     int query;
     float high,low,curtemp,fhigh,flow;
@@ -33,20 +36,14 @@ int main(){
             }
             fhigh = (high * 9 /5) + 32;
             flow = (low * 9 /5) + 32;
-            printf("\033[0;32m");
             printf("Highest Temperarure Reading: %.2fC(%.2fF)\n",high,fhigh);
             printf("Lowest Temperarure Reading: %.2fC(%.2fF)\n",low,flow);
-            printf("\033[0m");
         } else{
-            printf("\033[0;31m");
             printf("Input exceeds the maximum number of minutes in a single day!\nYou entered %d which is greater than 1,440\nThis could be due to an invalid input!", query);
-            printf("\033[0m");
             return -1;
         }
     } else{
-        printf("\033[0;31m");
         printf("Invalid Input! Range must be greater than 0!");
-        printf("\033[0m");
         return -1;
     }
     return 0;
